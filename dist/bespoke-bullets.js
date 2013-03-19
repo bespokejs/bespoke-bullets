@@ -1,5 +1,5 @@
 /*!
- * bespoke-bullets v0.0.1-alpha-1
+ * bespoke-bullets v0.0.1-alpha-2
  *
  * Copyright 2013, Mark Dalgleish
  * This content is released under the MIT license
@@ -13,7 +13,7 @@
 			activeBulletIndex,
 
 			bullets = deck.slides.map(function(slide) {
-				return [].slice.call(slide.querySelectorAll('[data-bespoke-bullet]'));
+				return [].slice.call(slide.querySelectorAll('[data-bespoke-bullet]'), 0);
 			}),
 
 			activateBullet = function(slideIndex, bulletIndex) {
@@ -50,7 +50,7 @@
 					activateBullet(activeSlideIndex, activeBulletIndex + 1);
 					return false;
 				} else if (bullets[nextSlideIndex]) {
-					activateBullet(activeSlideIndex + 1, 0);
+					activateBullet(nextSlideIndex, 0);
 				}
 			},
 
@@ -65,8 +65,6 @@
 				}
 			};
 
-		activateBullet(0, 0);
-
 		deck.on('next', function() {
 			return next();
 		});
@@ -78,6 +76,8 @@
 		deck.on('slide', function(e) {
 			activateBullet(e.index, 0);
 		});
+
+		activateBullet(0, 0);
 	};
 
 }(bespoke));

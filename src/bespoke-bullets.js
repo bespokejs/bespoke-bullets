@@ -5,7 +5,7 @@
 			activeBulletIndex,
 
 			bullets = deck.slides.map(function(slide) {
-				return [].slice.call(slide.querySelectorAll('[data-bespoke-bullet]'));
+				return [].slice.call(slide.querySelectorAll('[data-bespoke-bullet]'), 0);
 			}),
 
 			activateBullet = function(slideIndex, bulletIndex) {
@@ -42,7 +42,7 @@
 					activateBullet(activeSlideIndex, activeBulletIndex + 1);
 					return false;
 				} else if (bullets[nextSlideIndex]) {
-					activateBullet(activeSlideIndex + 1, 0);
+					activateBullet(nextSlideIndex, 0);
 				}
 			},
 
@@ -57,8 +57,6 @@
 				}
 			};
 
-		activateBullet(0, 0);
-
 		deck.on('next', function() {
 			return next();
 		});
@@ -70,6 +68,8 @@
 		deck.on('slide', function(e) {
 			activateBullet(e.index, 0);
 		});
+
+		activateBullet(0, 0);
 	};
 
 }(bespoke));
