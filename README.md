@@ -10,8 +10,8 @@ Style and animate bullet lists and their transitions with some simple CSS rules.
 
 Download the [production version][min] or the [development version][max].
 
-[min]: https://raw.github.com/markdalgleish/bespoke.js/master/dist/bespoke-bullets.min.js
-[max]: https://raw.github.com/markdalgleish/bespoke.js/master/dist/bespoke-bullets.js
+[min]: https://raw.github.com/markdalgleish/bespoke-bullets/master/dist/bespoke-bullets.min.js
+[max]: https://raw.github.com/markdalgleish/bespoke-bullets/master/dist/bespoke-bullets.js
 
 ## Usage
 
