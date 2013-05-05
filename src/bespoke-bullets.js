@@ -8,6 +8,28 @@
 				return [].slice.call(slide.querySelectorAll('[data-bespoke-bullet]'), 0);
 			}),
 
+			next = function() {
+				var nextSlideIndex = activeSlideIndex + 1;
+
+				if (activeSlideHasBulletByOffset(1)) {
+					activateBullet(activeSlideIndex, activeBulletIndex + 1);
+					return false;
+				} else if (bullets[nextSlideIndex]) {
+					activateBullet(nextSlideIndex, 0);
+				}
+			},
+
+			prev = function() {
+				var prevSlideIndex = activeSlideIndex - 1;
+
+				if (activeSlideHasBulletByOffset(-1)) {
+					activateBullet(activeSlideIndex, activeBulletIndex - 1);
+					return false;
+				} else if (bullets[prevSlideIndex]) {
+					activateBullet(prevSlideIndex, bullets[prevSlideIndex].length - 1);
+				}
+			},
+
 			activateBullet = function(slideIndex, bulletIndex) {
 				activeSlideIndex = slideIndex;
 				activeBulletIndex = bulletIndex;
@@ -27,43 +49,12 @@
 				});
 			},
 
-			canGoForwardsInSlide = function() {
-				return bullets[activeSlideIndex][activeBulletIndex + 1] !== undefined;
-			},
-
-			canGoBackwardsInSlide = function() {
-				return bullets[activeSlideIndex][activeBulletIndex - 1] !== undefined;
-			},
-
-			next = function() {
-				var nextSlideIndex = activeSlideIndex + 1;
-
-				if (canGoForwardsInSlide()) {
-					activateBullet(activeSlideIndex, activeBulletIndex + 1);
-					return false;
-				} else if (bullets[nextSlideIndex]) {
-					activateBullet(nextSlideIndex, 0);
-				}
-			},
-
-			prev = function() {
-				var prevSlideIndex = activeSlideIndex - 1;
-
-				if (canGoBackwardsInSlide()) {
-					activateBullet(activeSlideIndex, activeBulletIndex - 1);
-					return false;
-				} else if (bullets[prevSlideIndex]) {
-					activateBullet(prevSlideIndex, bullets[prevSlideIndex].length - 1);
-				}
+			activeSlideHasBulletByOffset = function(offset) {
+				return bullets[activeSlideIndex][activeBulletIndex + offset] !== undefined;
 			};
 
-		deck.on('next', function() {
-			return next();
-		});
-
-		deck.on('prev', function() {
-			return prev();
-		});
+		deck.on('next', next);
+		deck.on('prev', prev);
 
 		deck.on('slide', function(e) {
 			activateBullet(e.index, 0);
