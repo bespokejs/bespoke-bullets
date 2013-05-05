@@ -4,5 +4,8 @@
   "main": "./dist/bespoke-bullets.min.js",
   "ignore": [
     "**/.*"
-  ]
+  ],
+  "dependencies": {
+    "bespoke.js": "0.1.0"
+  }
 }
