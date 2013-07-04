@@ -21,29 +21,31 @@ Bespoke-bullets can be installed from [Bower](http://twitter.github.com/bower/) 
 $ bower install bespoke-bullets
 ```
 
-## Usage
+## Basic Usage
 
 First, include both `bespoke.js` and `bespoke-bullets.js` in your page.
 
-Next, add `data-bespoke-bullet` attributes to your bullet elements.
+Then, simply include the plugin and specify a selector when using the `from(selector[, plugins])` method.
+
+For example, let's assume we have the following slide markup:
 
 ```html
 <article>
   <section>
     <ul>
-      <li data-bespoke-bullet>Bullet 1</li>
-      <li data-bespoke-bullet>Bullet 2</li>
-      <li data-bespoke-bullet>Bullet 3</li>
+      <li>Bullet 1</li>
+      <li>Bullet 2</li>
+      <li>Bullet 3</li>
     </ul>
   </section>
 </article>
 ```
 
-Then, simply include the plugin when using the `from(selector[, plugins])` method.
+These bullets would be initialised like so:
 
 ```js
 bespoke.horizontal.from('article', {
-  bullets: true
+  bullets: 'li'
 });
 ```
 
@@ -67,6 +69,31 @@ The following classes are available on your bullet elements.
     <td>All inactive bullets</td>
    </tr>
 </table>
+
+### Data Atrributes
+
+The default behaviour, when the option value is `true`, is to look for elements with `data-bespoke-bullet` attributes:
+
+For example:
+
+```js
+bespoke.horizontal.from('article', {
+  bullets: true
+});
+```
+
+```html
+<article>
+  <section>
+    <h1 data-bespoke-bullet>Slide Title</h1>
+    <ul>
+      <li data-bespoke-bullet>Bullet 1</li>
+      <li data-bespoke-bullet>Bullet 2</li>
+      <li data-bespoke-bullet>Bullet 3</li>
+    </ul>
+  </section>
+</article>
+```
 
 ## Questions?
 

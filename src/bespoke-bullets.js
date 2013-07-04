@@ -1,11 +1,11 @@
 (function(bespoke) {
 
-	bespoke.plugins.bullets = function(deck) {
+	bespoke.plugins.bullets = function(deck, options) {
 		var activeSlideIndex,
 			activeBulletIndex,
 
 			bullets = deck.slides.map(function(slide) {
-				return [].slice.call(slide.querySelectorAll('[data-bespoke-bullet]'), 0);
+				return [].slice.call(slide.querySelectorAll((typeof options === 'string' ? options : '[data-bespoke-bullet]')), 0);
 			}),
 
 			next = function() {
@@ -33,7 +33,7 @@
 			activateBullet = function(slideIndex, bulletIndex) {
 				activeSlideIndex = slideIndex;
 				activeBulletIndex = bulletIndex;
-				
+
 				bullets.forEach(function(slide, s) {
 					slide.forEach(function(bullet, b) {
 						bullet.classList.add('bespoke-bullet');
