@@ -32,6 +32,8 @@ For example, let's assume we have the following slide markup:
 ```html
 <article>
   <section>
+    <h1 class="bullet">Title</h1>
+    <p class="bullet">Paragraph</p>
     <ul>
       <li>Bullet 1</li>
       <li>Bullet 2</li>
@@ -41,11 +43,11 @@ For example, let's assume we have the following slide markup:
 </article>
 ```
 
-These bullets would be initialised like so:
+These bullets (including the title and paragraph) would be initialised like so:
 
 ```js
 bespoke.from('article', {
-  bullets: 'li'
+  bullets: 'li, .bullet'
 });
 ```
 
