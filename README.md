@@ -44,7 +44,7 @@ For example, let's assume we have the following slide markup:
 These bullets would be initialised like so:
 
 ```js
-bespoke.horizontal.from('article', {
+bespoke.from('article', {
   bullets: 'li'
 });
 ```
@@ -77,7 +77,7 @@ The default behaviour, when the option value is `true`, is to look for elements 
 For example:
 
 ```js
-bespoke.horizontal.from('article', {
+bespoke.from('article', {
   bullets: true
 });
 ```
