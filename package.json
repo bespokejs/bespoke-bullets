@@ -11,7 +11,8 @@
     "node": ">=0.10.0"
   },
   "scripts": {
-    "test": "grunt jasmine"
+    "test": "gulp",
+    "coveralls": "gulp coveralls"
   },
   "repository": {
     "type": "git",
