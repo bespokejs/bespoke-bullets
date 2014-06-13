@@ -1,4 +1,4 @@
-[![Build Status](https://secure.travis-ci.org/markdalgleish/bespoke-bullets.png)](http://travis-ci.org/markdalgleish/bespoke-bullets)
+[![Build Status](https://secure.travis-ci.org/markdalgleish/bespoke-bullets.png?branch=master)](https://travis-ci.org/markdalgleish/bespoke-bullets) [![Coverage Status](https://coveralls.io/repos/markdalgleish/bespoke-bullets/badge.png)](https://coveralls.io/r/markdalgleish/bespoke-bullets)
 
 # bespoke-bullets
 
@@ -8,54 +8,39 @@ Style and animate bullet lists and their transitions with some simple CSS rules.
 
 ## Download
 
-Download the [production version][min] or the [development version][max].
+Download the [production version][min] or the [development version][max], or use a [package manager](#package-managers).
 
 [min]: https://raw.github.com/markdalgleish/bespoke-bullets/master/dist/bespoke-bullets.min.js
 [max]: https://raw.github.com/markdalgleish/bespoke-bullets/master/dist/bespoke-bullets.js
 
-### Bower
+## Usage
 
-Bespoke-bullets can be installed from [Bower](http://twitter.github.com/bower/) using the following command:
+This plugin is shipped in a [UMD format](https://github.com/umdjs/umd), meaning that it is available as a CommonJS/AMD module or browser global.
 
-```bash
-$ bower install bespoke-bullets
-```
-
-## Basic Usage
-
-First, include both `bespoke.js` and `bespoke-bullets.js` in your page.
-
-Then, simply include the plugin and specify a selector when using the `from(selector[, plugins])` method.
-
-For example, let's assume we have the following slide markup:
-
-```html
-<article>
-  <section>
-    <h1 class="bullet">Title</h1>
-    <p class="bullet">Paragraph</p>
-    <ul>
-      <li>Bullet 1</li>
-      <li>Bullet 2</li>
-      <li>Bullet 3</li>
-    </ul>
-  </section>
-</article>
-```
-
-These bullets (including the title and paragraph) would be initialised like so:
+For example, when using CommonJS modules:
 
 ```js
-bespoke.from('article', {
-  bullets: 'li, .bullet'
-});
+var bespoke = require('bespoke'),
+  bullets = require('bullets');
+
+bespoke.from('article', [
+  bullets('li, .bullet')
+]);
 ```
 
-You can now style your bullets and their animations by using the provided classes.
+When using browser globals:
+
+```js
+bespoke.from('article', [
+  bespoke.plugins.bullets('li, .bullet')
+]);
+```
+
+As you may have noticed, you can provide a custom bullet selector. This allows you to easily configure which elements are treated as bullets.
 
 ### CSS
 
-The following classes are available on your bullet elements.
+The following classes are available on your bullet elements, which allow you to style and animate them.
 
 <table>
    <tr>
@@ -74,14 +59,14 @@ The following classes are available on your bullet elements.
 
 ### Data Atrributes
 
-The default behaviour, when the option value is `true`, is to look for elements with `data-bespoke-bullet` attributes:
+When no selector is provided, the default behaviour is to look for elements with `data-bespoke-bullet` attributes, for example:
 
 For example:
 
 ```js
-bespoke.from('article', {
-  bullets: true
-});
+bespoke.from('article', [
+  bullets()
+]);
 ```
 
 ```html
@@ -97,12 +82,24 @@ bespoke.from('article', {
 </article>
 ```
 
-## Questions?
+## Package managers
 
-Contact me on GitHub or Twitter: [@markdalgleish](http://twitter.com/markdalgleish)
+### npm
+
+```bash
+$ npm install bespoke-bullets
+```
+
+### Bower
+
+```bash
+$ bower install bespoke-bullets
+```
+
+## Credits
+
+This plugin was built with [generator-bespokeplugin](https://github.com/markdalgleish/generator-bespokeplugin).
 
 ## License
 
-Copyright 2013, Mark Dalgleish  
-This content is released under the MIT license  
-http://markdalgleish.mit-license.org
+[MIT License](http://en.wikipedia.org/wiki/MIT_License)

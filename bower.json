@@ -1,11 +1,11 @@
 {
   "name": "bespoke-bullets",
   "version": "0.2.1",
-  "main": "./dist/bespoke-bullets.min.js",
+  "main": "./dist/bespoke-bullets.js",
   "ignore": [
     "**/.*"
   ],
   "dependencies": {
-    "bespoke.js": ">=0.2.0"
+    "bespoke.js": "^1.0.0"
   }
 }
