@@ -2,7 +2,7 @@
 
 # bespoke-bullets
 
-### Bullet Lists for [Bespoke.js](https://github.com/markdalgleish/bespoke.js)
+Bullet Lists for [Bespoke.js](https://github.com/markdalgleish/bespoke.js)
 
 Style and animate bullet lists and their transitions with some simple CSS rules.
 
