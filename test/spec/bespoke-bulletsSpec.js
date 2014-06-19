@@ -91,7 +91,7 @@
             });
 
             it("should remain on the current slide", function() {
-              expect(deck.slides[0].classList.contains('bespoke-active')).toBe(true);
+              expect(deck.slide()).toBe(0);
             });
 
             it("should add a 'bespoke-bullet-active' class to the second bullet", function() {
@@ -108,7 +108,7 @@
             });
 
             it("should remain on the current slide", function() {
-              expect(deck.slides[0].classList.contains('bespoke-active')).toBe(true);
+              expect(deck.slide()).toBe(0);
             });
 
           });
@@ -122,7 +122,7 @@
             });
 
             it("should proceed to the next slide", function() {
-              expect(deck.slides[1].classList.contains('bespoke-active')).toBe(true);
+              expect(deck.slide()).toBe(1);
             });
 
             it("activate the first bullet on the next slide", function() {
@@ -188,7 +188,7 @@
               });
 
               it("should activate the previous slide", function() {
-                expect(deck.slides[0].classList.contains('bespoke-active')).toBe(true);
+                expect(deck.slide()).toBe(0);
               });
 
               it("should activate the last bullet of the previous slide", function() {
@@ -242,7 +242,7 @@
             });
 
             it("should activate the third slide", function() {
-              expect(deck.slides[2].classList.contains('bespoke-active')).toBe(true);
+              expect(deck.slide()).toBe(2);
             });
 
             it("should activate the first bullet of the third slide", function() {
@@ -265,7 +265,7 @@
               });
 
               it("should activate the first slide", function() {
-                expect(deck.slides[0].classList.contains('bespoke-active')).toBe(true);
+                expect(deck.slide()).toBe(0);
               });
 
               it("should activate the last bullet of the first slide", function() {
