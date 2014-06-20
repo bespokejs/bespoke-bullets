@@ -21,7 +21,7 @@ For example, when using CommonJS modules:
 
 ```js
 var bespoke = require('bespoke'),
-  bullets = require('bullets');
+  bullets = require('bespoke-bullets');
 
 bespoke.from('article', [
   bullets('li, .bullet')
@@ -60,8 +60,6 @@ The following classes are available on your bullet elements, which allow you to 
 ### Data Atrributes
 
 When no selector is provided, the default behaviour is to look for elements with `data-bespoke-bullet` attributes, for example:
-
-For example:
 
 ```js
 bespoke.from('article', [
