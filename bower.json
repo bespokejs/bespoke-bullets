@@ -1,6 +1,6 @@
 {
   "name": "bespoke-bullets",
-  "version": "1.0.0-beta",
+  "version": "1.0.0",
   "main": "./dist/bespoke-bullets.js",
   "ignore": [
     "**/.*"
