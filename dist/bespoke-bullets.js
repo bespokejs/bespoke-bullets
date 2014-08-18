@@ -1,5 +1,5 @@
 /*!
- * bespoke-bullets v1.0.0
+ * bespoke-bullets v1.1.0
  *
  * Copyright 2014, Mark Dalgleish
  * This content is released under the MIT license
@@ -52,6 +52,12 @@ module.exports = function(options) {
             } else {
               bullet.classList.add('bespoke-bullet-inactive');
               bullet.classList.remove('bespoke-bullet-active');
+            }
+
+            if (s === slideIndex && b === bulletIndex) {
+              bullet.classList.add('bespoke-bullet-current');
+            } else {
+              bullet.classList.remove('bespoke-bullet-current');
             }
           });
         });
