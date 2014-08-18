@@ -55,6 +55,10 @@ The following classes are available on your bullet elements, which allow you to 
     <td><b>bespoke-bullet-inactive</b></td>
     <td>All inactive bullets</td>
    </tr>
+   <tr>
+    <td><b>bespoke-bullet-current</b></td>
+    <td>The current bullet</td>
+   </tr>
 </table>
 
 ### Data Atrributes
